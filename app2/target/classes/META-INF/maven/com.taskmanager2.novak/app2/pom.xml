@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Главный модуль приложения (точка входа) -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <!-- Версия модели POM -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Наследование от корневого POM проекта -->
+  <parent>
+    <groupId>com.taskmanager2.novak</groupId>          <!-- Группа родительского проекта -->
+    <artifactId>TaskManager2</artifactId>              <!-- ID родительского проекта -->
+    <version>0.0.1-SNAPSHOT</version>                  <!-- Версия проекта -->
+    <relativePath>../pom.xml</relativePath>            <!-- Путь к родительскому POM -->
+  </parent>
+
+  <!-- Уникальный артефакт ID данного модуля -->
+  <artifactId>app2</artifactId>
+
+  <!-- Тип упаковки: исполняемый JAR -->
+  <packaging>jar</packaging>
+
+  <!-- Зависимости, необходимые для работы модуля -->
+  <dependencies>
+
+    <!-- Зависимость на модуль web2 (контроллеры и веб-слой) -->
+    <dependency>
+      <groupId>com.taskmanager2.novak</groupId>
+      <artifactId>web2</artifactId>
+      <version>${project.version}</version> <!-- Используется текущая версия проекта -->
+    </dependency>
+
+    <!-- Включение Spring Boot Actuator для мониторинга и управления -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+
+  </dependencies>
+
+  <!-- Конфигурация сборки -->
+  <build>
+    <plugins>
+
+      <!-- Плагин Spring Boot для создания исполняемого JAR -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+
+        <configuration>
+          <!-- Главный класс с методом main() -->
+          <mainClass>com.taskmanager2.novak.App2Application</mainClass>
+        </configuration>
+
+        <executions>
+          <execution>
+            <goals>
+              <!-- Задача "repackage" создаёт fat-jar с зависимостями -->
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
+
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <!-- Определяем версию модели POM
+  Здесь указаны все зависимости, которые необходимы для работы текущего модуля:
+persistence2: для работы с базой данных через слой persistence.
+common2: для обмена данными между различными частями приложения.
+spring-security-core: для использования функционала безопасности, например, для кодирования паролей.
+spring-boot-starter-validation: для валидации данных, например, для проверки DTO.
+spring-tx: для работы с транзакциями.
+spring-boot-starter-logging: для логирования в приложении с использованием Spring Boot.
+Этот файл pom.xml служит для настройки зависимостей вашего Maven-проекта и описывает, какие библиотеки будут использоваться
+ в процессе разработки. -->
+ 
+  <modelVersion>4.0.0</modelVersion>
+  
+  <!-- Родительский проект. Здесь определяется родительский POM для наследования зависимостей и конфигураций -->
+  <parent>
+    <groupId>com.taskmanager2.novak</groupId> <!-- Группа родительского проекта -->
+    <artifactId>TaskManager2</artifactId> <!-- Артефакт родительского проекта -->
+    <version>0.0.1-SNAPSHOT</version> <!-- Версия родительского проекта -->
+    <relativePath>../pom.xml</relativePath> <!-- Путь к родительскому POM -->
+  </parent>
+
+  <!-- Артефакт для текущего модуля (сервиса) -->
+  <artifactId>service2</artifactId>
+  
+  <!-- Указываем, что данное приложение будет упаковано как JAR файл -->
+  <packaging>jar</packaging>
+  
+  <dependencies> <!-- Раздел зависимостей проекта -->
+  
+    <!-- Зависимость для доступа к базе данных через слой persistence -->
+    <dependency>
+      <groupId>com.taskmanager2.novak</groupId> <!-- Группа зависимого проекта -->
+      <artifactId>persistence2</artifactId> <!-- Артефакт зависимого проекта -->
+      <version>${project.version}</version> <!-- Версия зависимого проекта -->
+    </dependency>
+    
+    <!-- Зависимость для общих DTO (Data Transfer Object) между слоями -->
+    <dependency>
+      <groupId>com.taskmanager2.novak</groupId> <!-- Группа зависимого проекта -->
+      <artifactId>common2</artifactId> <!-- Артефакт зависимого проекта -->
+      <version>${project.version}</version> <!-- Версия зависимого проекта -->
+    </dependency>
+    
+    <!-- Зависимость от Spring Security для использования PasswordEncoder -->
+    <dependency>
+      <groupId>org.springframework.security</groupId> <!-- Группа для Spring Security -->
+      <artifactId>spring-security-core</artifactId> <!-- Артефакт для работы с базовыми функциями безопасности -->
+    </dependency>
+    
+    <!-- Зависимость для валидации данных (например, для проверки DTO) -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId> <!-- Группа для Spring Boot -->
+      <artifactId>spring-boot-starter-validation</artifactId> <!-- Артефакт для валидации данных -->
+    </dependency>
+    
+    <!-- Зависимость для работы с транзакциями в Spring -->
+    <dependency>
+      <groupId>org.springframework</groupId> <!-- Группа для Spring Framework -->
+      <artifactId>spring-tx</artifactId> <!-- Артефакт для транзакционной обработки -->
+    </dependency>
+    
+    <!-- Зависимость для логирования с использованием Spring Boot -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId> <!-- Группа для Spring Boot -->
+      <artifactId>spring-boot-starter-logging</artifactId> <!-- Артефакт для логирования в Spring Boot -->
+    </dependency>
+  
+  </dependencies> <!-- Конец раздела зависимостей -->
+
+</project>

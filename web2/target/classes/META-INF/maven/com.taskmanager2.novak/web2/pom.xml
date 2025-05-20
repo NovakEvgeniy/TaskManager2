@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- REST API - Этот модуль реализует веб-сервис для работы с REST API -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Указывает на родительский pom.xml, от которого наследуется конфигурация -->
+  <parent>
+    <groupId>com.taskmanager2.novak</groupId>
+    <artifactId>TaskManager2</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>  <!-- Путь к родительскому pom.xml -->
+  </parent>
+
+  <!-- Идентификатор текущего модуля -->
+  <artifactId>web2</artifactId>
+  <packaging>jar</packaging>  <!-- Указываем, что будет собран JAR файл -->
+
+  <dependencies>
+    <!-- Зависимость от Spring Web для создания REST API -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- Бизнес-логика. Зависимость от сервиса, который обрабатывает логику приложения -->
+    <dependency>
+      <groupId>com.taskmanager2.novak</groupId>
+      <artifactId>service2</artifactId>
+      <version>${project.version}</version>  <!-- Используется версия родительского проекта -->
+    </dependency>
+
+    <!-- Безопасность. Зависимость от модуля, который реализует безопасность приложения -->
+    <dependency>
+      <groupId>com.taskmanager2.novak</groupId>
+      <artifactId>security2</artifactId>
+      <version>${project.version}</version>  <!-- Используется версия родительского проекта -->
+    </dependency>
+
+    <!-- Зависимость для тестирования приложения -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>  <!-- Тестирование, не включается в продакшн-сборку -->
+    </dependency>
+
+    <!-- Thymeleaf - Шаблонизатор для создания веб-интерфейсов -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+
+    <!-- Зависимость для работы с JSON через Jackson -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+    </dependency>
+
+  </dependencies>
+  
+</project>

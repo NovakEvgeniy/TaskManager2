@@ -1,0 +1,4 @@
+com\taskmanager2\novak\common2\dto\UserDto.class
+com\taskmanager2\novak\common2\enums\TaskStatus.class
+com\taskmanager2\novak\common2\dto\TaskDto.class
+com\taskmanager2\novak\common2\enums\RoleType.class

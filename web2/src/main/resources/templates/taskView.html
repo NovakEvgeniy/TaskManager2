@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список задач</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/styles.css">    
+</head>
+<body>
+    <h2>Список задач</h2>
+    <form class="task-form">
+        <input type="text" name="nameTask" placeholder="Название задачи" required>
+        <select name="statusTask">
+            <option value="TO_DO">TO_DO</option>
+            <option value="IN_PROGRESS">IN_PROGRESS</option>
+            <option value="DONE">DONE</option>
+        </select>
+        <button type="submit">Добавить</button>
+    </form>
+
+    <form class="filter-form">
+        <label for="status">Фильтр по статусу:</label> 
+        <select name="status">
+            <option value="">Все</option>
+            <option value="TO_DO">TO_DO</option>
+            <option value="IN_PROGRESS">IN_PROGRESS</option>
+            <option value="DONE">DONE</option>
+        </select>
+        <button type="button" id="filter-btn">Фильтровать</button>
+    </form>
+
+    <div class="scroll-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Задачи</th>
+                    <th>Статус</th>
+                    <th colspan="2">Действие</th>
+                </tr>
+            </thead>
+            <tbody id="task-list">
+                <tr th:each="task : ${tasks}">
+                    <td th:text="${task.nameTask}"></td>
+                    <td th:text="${task.statusTask}"></td>
+                    <td>
+                        <button class="edit-btn" 
+                                data-id="${task.id}"
+                                data-name="${task.nameTask}"
+                                data-status="${task.statusTask}">
+                            Редактировать
+                        </button>
+                    </td>
+                    <td>
+                        <button class="delete-btn" data-id="${task.id}">
+                            Удалить
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">Итого: <span id="task-count">0</span> задач</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h4>Редактировать задачу</h4>
+            <form id="edit-form">
+                <input type="hidden" name="id" id="edit-id">
+                <input type="text" name="nameTask" id="edit-nameTask" placeholder="Название задачи" required>
+                <select name="statusTask" id="edit-statusTask" required>
+                    <option value="TO_DO">TO_DO</option>
+                    <option value="IN_PROGRESS">IN_PROGRESS</option>
+                    <option value="DONE">DONE</option>
+                </select>
+                <button type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/task-ajax.js"></script>
+</body>
+</html>

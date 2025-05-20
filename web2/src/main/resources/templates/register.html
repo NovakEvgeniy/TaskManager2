@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Что делает эта страница:
+Предоставляет форму регистрации для новой учетной записи посетителя.
+Использует Bootstrap для оформления формы и выравнивания элементов.
+Поля логина и пароля обязательны для заполнения.
+После отправки данные отправляются на сервер по адресу /register.
+ -->
+<html xmlns:th="http://www.thymeleaf.org"> <!-- Подключение пространства имён Thymeleaf (если будет использоваться шаблонизация) -->
+<head>
+    <meta charset="UTF-8"> <!-- Установка кодировки символов UTF-8 -->
+    <title>Регистрация</title> <!-- Заголовок страницы, отображаемый на вкладке браузера -->
+
+    <!-- Подключение стилей Bootstrap для использования готовых классов оформления -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Основной контейнер с вертикальным отступом -->
+    <div class="container mt-5">
+        <!-- Заголовок страницы, выровненный по центру -->
+        <h2 class="text-center mb-4">Регистрация посетителя</h2>
+
+        <!-- Форма регистрации -->
+        <!-- Отправка данных происходит методом POST на адрес /register -->
+        <form action="/register" method="post" class="col-md-6 mx-auto">
+            <!-- Поле ввода логина -->
+            <div class="form-group">
+                <label>Логин:</label>
+                <input type="text" name="username" class="form-control" required> <!-- Обязательное поле -->
+            </div>
+
+            <!-- Поле ввода пароля -->
+            <div class="form-group">
+                <label>Пароль:</label>
+                <input type="password" name="password" class="form-control" required> <!-- Обязательное поле -->
+            </div>
+
+            <!-- Кнопка отправки формы -->
+            <button type="submit" class="btn btn-primary btn-block">Зарегистрироваться</button>
+        </form>
+    </div>
+</body>
+</html>

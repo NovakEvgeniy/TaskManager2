@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список посетителей</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/styles.css">    
+</head>
+<body>
+    <h2>Список посетителей, зарегистрированных в БД</h2>
+    <div class="scroll-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Имя пользователя</th>
+                    <th>Действие</th>
+                </tr>
+            </thead>
+            <tbody id="user-list">
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.username}"></td>
+                    <td>
+                        <button class="delete-user-btn" 
+                                th:data-id="${user.id}">
+                            Удалить
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">Итого: <span id="user-count" th:text="${users.size()}">0</span> пользователей</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/task-ajax.js"></script>
+</body>
+</html>

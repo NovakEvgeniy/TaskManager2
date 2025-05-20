@@ -1,0 +1,4 @@
+com\taskmanager2\novak\web2\controller\LoginController.class
+com\taskmanager2\novak\web2\controller\TaskController.class
+com\taskmanager2\novak\web2\controller\RegistrationController.class
+com\taskmanager2\novak\web2\controller\AdminController.class

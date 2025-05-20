@@ -1,0 +1,4 @@
+com\taskmanager2\novak\persistence2\repository\TaskRepository.class
+com\taskmanager2\novak\persistence2\entity\TaskEntity.class
+com\taskmanager2\novak\persistence2\repository\UserRepository.class
+com\taskmanager2\novak\persistence2\entity\UserEntity.class

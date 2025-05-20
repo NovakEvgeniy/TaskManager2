@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Основной проект Maven для модуля persistence2 
+Модуль persistence2 отвечает за работу с базой данных, например, хранение и извлечение данных с использованием JPA 
+(Java Persistence API).
+Зависимость от модуля common2 — в нем, вероятно, содержатся общие классы, которые могут быть использованы в других модулях 
+(например, DTO, сущности).
+spring-boot-starter-data-jpa — добавляет поддержку JPA, что упрощает работу с базой данных через Spring Data.
+mysql-connector-j — это JDBC драйвер для MySQL, необходим для подключения вашего приложения к базе данных MySQL.-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <!-- Указание версии POM модели (Maven 4.0.0) -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Наследование от родительского POM (корневого проекта) -->
+  <parent>
+    <groupId>com.taskmanager2.novak</groupId>  <!-- Группа родительского проекта -->
+    <artifactId>TaskManager2</artifactId>      <!-- Имя родительского артефакта -->
+    <version>0.0.1-SNAPSHOT</version>          <!-- Версия родительского проекта -->
+    <relativePath>../pom.xml</relativePath>    <!-- Путь к родительскому POM -->
+  </parent>
+
+  <!-- Уникальный артефакт ID для текущего модуля -->
+  <artifactId>persistence2</artifactId>
+
+  <!-- Зависимости, необходимые для работы с данным модулем -->
+  <dependencies>
+
+    <!-- Зависимость от модуля common2 (общие классы и DTO) -->
+    <dependency>
+      <groupId>com.taskmanager2.novak</groupId>
+      <artifactId>common2</artifactId>
+      <version>0.0.1-SNAPSHOT</version> <!-- Версия должна совпадать с версией в common2/pom.xml -->
+    </dependency>
+
+    <!-- Зависимость для работы с базой данных через Spring Data JPA -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>  <!-- Добавляет поддержку JPA -->
+    </dependency>
+    
+    <!-- Зависимость для подключения к базе данных MySQL -->
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>8.0.33</version>  <!-- Фиксированная версия MySQL Connector/J для подключения к MySQL -->
+    </dependency>
+
+  </dependencies>
+</project>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Описание Maven-проекта для хранения общих DTO, классов с аннотациями валидации, утилит, общих исключений.-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <!-- Версия модели POM -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Наследование конфигурации от корневого POM проекта -->
+  <parent>
+    <groupId>com.taskmanager2.novak</groupId>       <!-- Группа родительского проекта -->
+    <artifactId>TaskManager2</artifactId>           <!-- Имя родительского артефакта -->
+    <version>0.0.1-SNAPSHOT</version>               <!-- Версия проекта -->
+    <relativePath>../pom.xml</relativePath>         <!-- Путь к родительскому POM -->
+  </parent>
+
+  <!-- Уникальный артефакт ID данного модуля -->
+  <artifactId>common2</artifactId>
+
+  <!-- Зависимости, необходимые в этом модуле -->
+  <dependencies>
+
+    <!-- Jakarta Bean Validation API (аннотации вроде @NotNull, @Size и т.п.) -->
+    <dependency>
+      <groupId>jakarta.validation</groupId>
+      <artifactId>jakarta.validation-api</artifactId>
+      <version>3.0.2</version>
+    </dependency>
+
+    <!-- Зависимости для тестирования: JUnit, Mockito и другие из spring-boot-starter-test -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope> <!-- Только для тестов, не попадёт в финальный jar -->
+    </dependency>
+
+  </dependencies>
+</project>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+                    
+    
+    
+    
+    <wb-module deploy-name="app2">
+                                        
+        
+        
+        
+        <wb-resource deploy-path="/" source-path="/src/main/java"/>
+                                        
+        
+        
+        
+        <wb-resource deploy-path="/" source-path="/src/main/resources"/>
+                        
+        
+        <wb-resource deploy-path="/" source-path="/target/generated-sources/annotations"/>
+                                        
+        
+        
+        
+        <dependent-module deploy-path="/" handle="module:/resource/web2/web2">
+                                                            
+            
+            
+            
+            <dependency-type>uses</dependency-type>
+                                                        
+        
+        
+        
+        </dependent-module>
+                                        
+        
+        
+        
+        <dependent-module deploy-path="/" handle="module:/resource/service2/service2">
+                                                            
+            
+            
+            
+            <dependency-type>uses</dependency-type>
+                                                        
+        
+        
+        
+        </dependent-module>
+                                        
+        
+        
+        
+        <dependent-module deploy-path="/" handle="module:/resource/persistence2/persistence2">
+                                                            
+            
+            
+            
+            <dependency-type>uses</dependency-type>
+                                                        
+        
+        
+        
+        </dependent-module>
+                                        
+        
+        
+        
+        <dependent-module deploy-path="/" handle="module:/resource/security2/security2">
+                                                            
+            
+            
+            
+            <dependency-type>uses</dependency-type>
+                                                        
+        
+        
+        
+        </dependent-module>
+                                        
+        
+        
+        
+        <dependent-module deploy-path="/" handle="module:/resource/common2/common2">
+                                                            
+            
+            
+            
+            <dependency-type>uses</dependency-type>
+                                                        
+        
+        
+        
+        </dependent-module>
+                                    
+    
+    
+    
+    </wb-module>
+                
+
+
+
+</project-modules>
