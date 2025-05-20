@@ -1,5 +1,3 @@
-Вот готовая разметка Markdown для вашего README.md:
-
 ```markdown
 # TaskManager2
 
